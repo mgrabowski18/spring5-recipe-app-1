@@ -3,7 +3,7 @@ jobs :
   build:
     working_directory: ~/
     docker:
-      - image: circleci/android:api-27-alpha
+      - image: circleci/openjdk:11.0.2
     steps:
       - checkout
       - restore_cache:
