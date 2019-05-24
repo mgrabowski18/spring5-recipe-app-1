@@ -16,29 +16,29 @@ public class Ingredient {
     private Long id;
 
     private String description;
-    private BigDecimal ammount;
+    private BigDecimal amount;
 
 
     @ManyToOne
     private Recipe recipe;
 
     @OneToOne(fetch = FetchType.EAGER)
-    private UnitOfMeasure uom;
+    private UnitOfMeasure unitOfMeasure;
 
     public Ingredient() {
 
     }
 
-    public Ingredient(String description, BigDecimal ammount, UnitOfMeasure uom) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure) {
         this.description = description;
-        this.ammount = ammount;
-        this.uom = uom;
+        this.amount = amount;
+        this.unitOfMeasure = unitOfMeasure;
     }
 
-    public Ingredient(String description, BigDecimal ammount, UnitOfMeasure uom, Recipe recipe) {
+    public Ingredient(String description, BigDecimal amount, UnitOfMeasure unitOfMeasure, Recipe recipe) {
         this.description = description;
-        this.ammount = ammount;
-        this.uom = uom;
+        this.amount = amount;
+        this.unitOfMeasure = unitOfMeasure;
         this.recipe = recipe;
     }
 

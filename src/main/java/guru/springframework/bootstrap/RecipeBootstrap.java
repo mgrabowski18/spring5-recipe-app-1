@@ -89,8 +89,14 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
             throw new RuntimeException("Expected Category Not Found");
         }
 
+        Optional<Category> italianCategoryOptional = categoryRepository.findByDescription("Italian");
+        if (!italianCategoryOptional.isPresent()) {
+            throw new RuntimeException("Expected Category Not Found");
+        }
+
         Category americanCategory = americanCategoryOptional.get();
         Category mexicanCategory = mexicanCategoryOptional.get();
+        Category italianCategory = italianCategoryOptional.get();
 
         Recipe guacamole = new Recipe();
         guacamole.setDescription("Perfect Guacamole");
@@ -136,6 +142,7 @@ public class RecipeBootstrap implements ApplicationListener<ContextRefreshedEven
 
         guacamole.getCategories().add(americanCategory);
         guacamole.getCategories().add(mexicanCategory);
+        guacamole.getCategories().add(italianCategory);
 
         guacamole.setSource("https://www.simplyrecipes.com/recipes/perfect_guacamole/");
         recipes.add(guacamole);
